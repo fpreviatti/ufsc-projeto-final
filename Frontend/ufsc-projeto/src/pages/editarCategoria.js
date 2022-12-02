@@ -6,6 +6,13 @@ import React from "react";
 
 import { useParams } from "react-router-dom";
 
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+
+import Card from "@mui/material/Card";
+
 import "../styles/detalhes.css";
 
 const EditarCategoria = () => {
@@ -44,7 +51,15 @@ const EditarCategoria = () => {
   }
 
   return (
-    <div>
+    <div className="container">
+      <Card sx={{ minWidth: 275 }}>
+        <CardContent>
+          <Typography variant="h5" align="center" component="div">
+            Editar Categoria ID: {id}
+          </Typography>
+        </CardContent>
+      </Card>
+      <br></br>
       <form className="formulario" onSubmit={handleSubmit} method="put">
         <label htmlFor="fname" className="label-estilizado">
           Nome da Categoria

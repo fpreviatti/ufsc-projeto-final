@@ -186,22 +186,23 @@ export default function Produtos() {
                 </TableCell>
               </TableRow>
             ))}
-
           </TableBody>
         </Table>
       </TableContainer>
-      
+      <br></br>
+
       <Card sx={{ minWidth: 275 }}>
-        <CardActions>
+        <CardContent>
           <Typography variant="h5" align="center" component="div">
-            <Button size="small" onClick={handleClick}>
-              Adicionar Produto
+            <Button variant="contained" size="large" onClick={handleClick}>
+              Novo Produto
             </Button>
           </Typography>
-        </CardActions>
+        </CardContent>
       </Card>
-      
+
+      <br></br>
+      <br></br>
     </div>
-    
   );
 }

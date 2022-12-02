@@ -181,16 +181,20 @@ export default function Categorias() {
         </Table>
       </TableContainer>
 
+      <br></br>
+
       <Card sx={{ minWidth: 275 }}>
-        <CardActions>
+        <CardContent>
           <Typography variant="h5" align="center" component="div">
-            <Button size="small" onClick={handleClick}>
-              Adicionar Categoria
+            <Button variant="contained" size="large" onClick={handleClick}>
+              Nova Categoria
             </Button>
           </Typography>
-        </CardActions>
+        </CardContent>
       </Card>
 
+      <br></br>
+      <br></br>
     </div>
   );
 }

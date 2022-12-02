@@ -13,6 +13,12 @@ import React, { Component } from "react";
 
 import { useParams } from "react-router-dom";
 
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Card from "@mui/material/Card";
+
 export class EditarProduto extends Component {
   constructor(props) {
     super(props);
@@ -20,10 +26,10 @@ export class EditarProduto extends Component {
       selectOptions: [],
       idProduto: "",
       id: "",
-      name: "",
       message: "",
       file: "",
       data: "",
+      descricao: ""
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -43,16 +49,17 @@ export class EditarProduto extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    if (document.getElementById("arquivo").value == "") {
+    if (this.state.id == "") {
+      alert("Obrigatorio escolher uma categoria");
+    } else if (document.getElementById("arquivo").value == "") {
       alert("Favor adicionar um arquivo");
     } else {
-
       const fetchPromise = fetch(
         "http://localhost:8080/retornaArquivo/" +
           document.getElementById("arquivo").value
       );
 
-        fetchPromise
+      fetchPromise
         .then((response) => {
           if (!response.ok) {
             throw new Error(`HTTP error: ${response.status}`);
@@ -64,11 +71,13 @@ export class EditarProduto extends Component {
             headers: {},
           };
 
-          console.log('ARQUIVO');
+          console.log("ID CATEGORIA");
+          console.log(this.state.id);
 
-          console.log(data);
+          console.log("CATEGORIA");
+          console.log(this.state.descricao);
 
-          const url = "http://localhost:8080/produtos/"+this.state.idProduto;
+          const url = "http://localhost:8080/produtos/" + this.state.idProduto;
 
           const dados = {
             caminhoImagem: data.id,
@@ -94,7 +103,7 @@ export class EditarProduto extends Component {
   };
 
   handleChange(e) {
-    this.setState({ id: e.value, name: e.label });
+    this.setState({ id: e.value, descricao: e.label });
   }
 
   handleClick = () => {
@@ -114,14 +123,27 @@ export class EditarProduto extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Produto ID: {this.state.idProduto} </h1>
+      <div className="container">
+        <Card sx={{ minWidth: 275 }}>
+          <CardContent>
+            <Typography variant="h5" align="center" component="div">
+              Editar Produto ID: {this.state.idProduto}
+            </Typography>
+          </CardContent>
+        </Card>
+        <br></br>
+
         <form className="formulario" onSubmit={this.handleSubmit} method="post">
           <label htmlFor="fname" className="label-estilizado">
             Nome do Produto
           </label>
           <br></br>
-          <input type="text" name="nome" className="input-estilizado"></input>
+          <input
+            type="text"
+            required
+            name="nome"
+            className="input-estilizado"
+          ></input>
           <br></br>
 
           <label htmlFor="fname" className="label-estilizado">
@@ -139,7 +161,12 @@ export class EditarProduto extends Component {
             Preco
           </label>
           <br></br>
-          <input type="number" step=".01" name="preco" className="input-estilizado"></input>
+          <input
+            type="number"
+            step=".01"
+            name="preco"
+            className="input-estilizado"
+          ></input>
           <br></br>
 
           <label htmlFor="fname" className="label-estilizado">
@@ -155,7 +182,9 @@ export class EditarProduto extends Component {
 
           <Upload></Upload>
 
-          <input type="submit" value="Cadastrar Produto"></input>
+          <Button variant="contained" size="large" type="submit">
+            Alterar Produto
+          </Button>
         </form>
         <br></br>
       </div>

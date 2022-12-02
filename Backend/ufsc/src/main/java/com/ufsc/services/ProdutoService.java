@@ -51,10 +51,10 @@ public class ProdutoService {
 		produtoEntity.setQuantidade(produto.getQuantidade());
 		produtoEntity.setArquivo(produto.getArquivo());
 		produtoEntity.setCaminhoImagem(produto.getCaminhoImagem());
+		produtoEntity.setCategoria(produto.getCategoria());
 
 		return produtoRepository.save(produtoEntity);
 	}
-
 
 	public void deleteById(Long id) {
 		produtoRepository.deleteById(id);

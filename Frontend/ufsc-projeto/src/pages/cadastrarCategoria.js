@@ -5,12 +5,18 @@ import { useNavigate } from "react-router-dom";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+
+import Card from "@mui/material/Card";
+
 import "../styles/cadastrar-produto.css";
 
 import { useState } from "react";
 
 var descricaoCategoria = "";
-
 
 export default class CadastrarCategoria extends Component {
   constructor(props) {
@@ -20,7 +26,6 @@ export default class CadastrarCategoria extends Component {
       name: "",
       data: "",
     };
-
   }
 
   handleSubmit = (event) => {
@@ -42,7 +47,7 @@ export default class CadastrarCategoria extends Component {
       console.log(response.data);
     });
 
-    alert('Categoria cadastrada com sucesso!');
+    alert("Categoria cadastrada com sucesso!");
   };
 
   handleClick = () => {
@@ -51,9 +56,16 @@ export default class CadastrarCategoria extends Component {
   };
 
   render() {
-
     return (
-      <div>
+      <div className="container">
+        <Card sx={{ minWidth: 275 }}>
+          <CardContent>
+            <Typography variant="h5" align="center" component="div">
+              Cadastrar categoria
+            </Typography>
+          </CardContent>
+        </Card>
+        <br></br>
         <form className="formulario" onSubmit={this.handleSubmit} method="post">
           <label htmlFor="fname" className="label-estilizado">
             Nome da Categoria
@@ -63,113 +75,11 @@ export default class CadastrarCategoria extends Component {
           <input type="text" name="nome" className="input-estilizado"></input>
           <br></br>
 
-          <input type="submit" value="Cadastrar Categoria"></input>
+          <Button variant="contained" size="medium" type="submit">Cadastrar Categoria</Button>
+
         </form>
         <br></br>
       </div>
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-const CadastrarCategoria = () => {
-  // 👇️ set initial value in call to useState
-  const [message, setMessage] = useState("");
-
-  const handleChange = (event) => {
-    setMessage(event.target.value);
-    descricaoCategoria = message;
-    console.log(event.target.value);
-  };
-
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    const url = "http://localhost:8080/categorias";
-    const dados = {
-      descricao: descricaoCategoria,
-    };
-
-    const config = {
-      headers: {},
-    };
-    axios.post(url, dados, config).then((response) => {
-      console.log(response.data);
-    });
-
-    navigate("/");
-  };
-  return (
-    <form className="formulario" onSubmit={handleClick} method="post">
-      <label htmlFor="fname" className="label-estilizado">
-        Descrição da Categoria
-      </label>
-      <br></br>
-      <input
-        type="text"
-        id="message"
-        className="input-estilizado"
-        onChange={handleChange}
-        value={message}
-      ></input>
-      <br></br>
-
-      <input type="submit"></input>
-    </form>
-  );
-};
-
-export default CadastrarCategoria;
-
-*/

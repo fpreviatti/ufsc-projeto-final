@@ -9,7 +9,19 @@ import Upload from "./upload";
 
 import { ReactDOM } from "react";
 
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControl from "@mui/material/FormControl";
+
 import React, { Component } from "react";
+
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+
+import Card from "@mui/material/Card";
 
 export default class CadastrarProduto extends Component {
   constructor(props) {
@@ -25,6 +37,7 @@ export default class CadastrarProduto extends Component {
       isValid: false,
       arquivoId: "",
       selecionou: false,
+      categoria: "categoria",
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -44,21 +57,17 @@ export default class CadastrarProduto extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log('ID CATEGORIA');
-
-    console.log(this.state.id);
-
-    if (document.getElementById("arquivo").value == "") {
+    if (this.state.id == "") {
+      alert("Obrigatorio escolher uma categoria");
+    } else if (document.getElementById("arquivo").value == "") {
       alert("Favor adicionar um arquivo");
-    } 
-
-      else {
+    } else {
       const fetchPromise = fetch(
         "http://localhost:8080/retornaArquivo/" +
           document.getElementById("arquivo").value
       );
 
-        fetchPromise
+      fetchPromise
         .then((response) => {
           if (!response.ok) {
             throw new Error(`HTTP error: ${response.status}`);
@@ -108,11 +117,27 @@ export default class CadastrarProduto extends Component {
 
   componentDidMount() {
     this.getOptions();
+
+   
   }
 
+  fetchData = (id) => {
+    this.state.idProduto = id;
+  };
+
   render() {
+    const age = "assasaas";
     return (
-      <div>
+      <div className="container">
+        <Card sx={{ minWidth: 275 }}>
+          <CardContent>
+            <Typography variant="h5" align="center" component="div">
+              Cadastrar Produto
+            </Typography>
+          </CardContent>
+        </Card>
+        <br></br>
+
         <form className="formulario" onSubmit={this.handleSubmit} method="post">
           <label htmlFor="fname" className="label-estilizado">
             Nome do Produto
@@ -151,13 +176,7 @@ export default class CadastrarProduto extends Component {
           ></input>
           <br></br>
 
-          <label htmlFor="fname" required className="label-estilizado">
-            Categoria
-          </label>
-
           <Select
-            isSearchable
-            required
             options={this.state.selectOptions}
             onChange={this.handleChange.bind(this)}
           />
@@ -166,7 +185,9 @@ export default class CadastrarProduto extends Component {
 
           <Upload enviarArquivo={this.state.arquivo} />
 
-          <input type="submit" value="Cadastrar Produto"></input>
+          <Button variant="contained" size="large" type="submit">
+            Cadastrar Produto
+          </Button>
         </form>
         <br></br>
       </div>
