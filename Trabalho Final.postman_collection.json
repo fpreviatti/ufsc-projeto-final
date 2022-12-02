@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "579b89ba-7065-48aa-b29f-61d33acceb81",
+		"name": "Trabalho Final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get categorias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/categorias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get produtos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"descricao\": \"hhhhhhhhhhh\",\r\n\"preco\": 3.0,\r\n\"quantidade\": 4,\r\n\"caminhoImagem\": \"8d52643c-6eab-4298-a59b-36413e76b3b8\",\r\n\"arquivo\": {\r\n\"id\": \"23ee39d0-cb68-4c8b-9c58-4003c6471f6d\",\r\n\"nome\": null,\r\n\"tipo\": null,\r\n\"dadosArquivo\": \"\"\r\n},\r\n\"categoria\": {\r\n\"id\": 1,\r\n\"descricao\": \"Eletrônicos\"\r\n}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get categoria by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/categorias/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get produto by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/produtos/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post categoria",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n\"descricao\": \"Nova Categoria\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/categorias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post produto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 21,\r\n    \"descricao\": \"hhhhhhhhhhh\",\r\n    \"preco\": 3.0,\r\n    \"quantidade\": 4,\r\n    \"caminhoImagem\": \"8d52643c-6eab-4298-a59b-36413e76b3b8\",\r\n    \"arquivo\": {\r\n        \"nome\": \"wqwq\",\r\n        \"tipo\": null,\r\n        \"dadosArquivo\": null\r\n    },\r\n    \"categoria\": {\r\n        \"id\": 1,\r\n        \"descricao\": \"Eletrônicos\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete produto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/produtos/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post arquivo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/Pichau/OneDrive/Documentos/foto.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/arquivo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"arquivo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get arquivo by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/arquivo/43ce3fc4-3a81-474b-9805-843db4ca789d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"arquivo",
+						"43ce3fc4-3a81-474b-9805-843db4ca789d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get arquivos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/arquivos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"arquivos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put categoria",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"descricao\": \"sasasasasa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/arquivos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"arquivos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get produtos por categoria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/produtos/categoria/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos",
+						"categoria",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put produto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n        \"descricao\": \"cama\",\r\n        \"preco\": 2121.0,\r\n        \"quantidade\": 2121,\r\n        \"caminhoImagem\": \"e59192fa-116c-4b3b-a260-fb78fffd58e6\",\r\n        \"arquivo\": {\r\n            \"id\": \"e59192fa-116c-4b3b-a260-fb78fffd58e6\",\r\n            \"nome\": \"cama.jpg\",\r\n            \"tipo\": \"image/jpeg\",\r\n            \"dadosArquivo\": \"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\"\r\n        },\r\n        \"categoria\": {\r\n            \"id\": 1,\r\n            \"descricao\": \"Eletrônicos\"\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/produtos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get arquivo by id json",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/retornaArquivo/58f7c932-5876-449c-90c6-73263044b398",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"retornaArquivo",
+						"58f7c932-5876-449c-90c6-73263044b398"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
