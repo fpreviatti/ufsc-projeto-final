@@ -1,0 +1,39 @@
+.label-estilizado {
+    color: black;
+  }
+  
+  body{
+ 
+  background-repeat: no-repeat; background-size:  100%;
+  }
+
+  .formulario{
+    text-align:center;
+  }
+
+  .lista{
+    text-align:center;
+  }
+
+  button{
+    text-align:center;
+  }
+
+  h1{
+    border-style: solid;
+    text-align: center;
+  }
+
+  .input-estilizado{
+
+    border: 4px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+
+
+    border: 2px solid black;
+    margin: 10px;
+  
+  }
+
+ 
