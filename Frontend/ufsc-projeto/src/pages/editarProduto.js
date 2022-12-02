@@ -129,7 +129,7 @@ export class EditarProduto extends Component {
           </label>
           <br></br>
           <input
-            type="text"
+            type="number"
             name="quantidade"
             className="input-estilizado"
           ></input>
@@ -139,7 +139,7 @@ export class EditarProduto extends Component {
             Preco
           </label>
           <br></br>
-          <input type="text" name="preco" className="input-estilizado"></input>
+          <input type="number" step=".01" name="preco" className="input-estilizado"></input>
           <br></br>
 
           <label htmlFor="fname" className="label-estilizado">

@@ -24,6 +24,7 @@ export default class CadastrarProduto extends Component {
       arquivo: undefined,
       isValid: false,
       arquivoId: "",
+      selecionou: false,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -43,9 +44,15 @@ export default class CadastrarProduto extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
+    console.log('ID CATEGORIA');
+
+    console.log(this.state.id);
+
     if (document.getElementById("arquivo").value == "") {
       alert("Favor adicionar um arquivo");
-    } else {
+    } 
+
+      else {
       const fetchPromise = fetch(
         "http://localhost:8080/retornaArquivo/" +
           document.getElementById("arquivo").value
@@ -125,7 +132,7 @@ export default class CadastrarProduto extends Component {
           <br></br>
           <input
             required
-            type="text"
+            type="number"
             name="quantidade"
             className="input-estilizado"
           ></input>
@@ -136,8 +143,9 @@ export default class CadastrarProduto extends Component {
           </label>
           <br></br>
           <input
-            type="text"
+            type="number"
             required
+            step=".01"
             name="preco"
             className="input-estilizado"
           ></input>
